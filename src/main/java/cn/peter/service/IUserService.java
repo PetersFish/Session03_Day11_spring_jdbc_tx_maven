@@ -1,10 +1,10 @@
 package cn.peter.service;
 
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import cn.peter.pojo.po.User;
 
-@Component
+@Service
 public interface IUserService {
 
 	//´æ´¢user

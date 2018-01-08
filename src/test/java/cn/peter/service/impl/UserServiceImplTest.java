@@ -21,6 +21,9 @@ public class UserServiceImplTest {
 	
 	@Test
 	public void testSave() {
+		user.setId(1);
+		user.setUsername("Peter");
+		user.setPassword("123");
 		userservice.save(user);
 	}
 }

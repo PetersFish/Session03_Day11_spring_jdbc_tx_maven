@@ -1,17 +1,22 @@
 package cn.peter.service.impl;
 
-import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import cn.peter.dao.IUserDao;
 import cn.peter.pojo.po.User;
 import cn.peter.service.IUserService;
 
-@Component
+@Service
 public class UserServiceImpl implements IUserService {
+	
+	@Autowired
+	IUserDao userdao;
 
 	@Override
 	public int save(User user) {
 		System.out.println("+++++++++++Ôö¼Óuser++++++++++++");
-		return 0;
+		return userdao.save(user);
 	}
 
 	@Override

@@ -1,7 +1,10 @@
 package cn.peter.dao;
 
+import org.springframework.stereotype.Repository;
+
 import cn.peter.pojo.po.User;
 
+@Repository
 public interface IUserDao {
 
 	//´æ´¢user
