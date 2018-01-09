@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xmlns:p="http://www.springframework.org/schema/p"
+        xmlns:context="http://www.springframework.org/schema/context"
+        xmlns:aop="http://www.springframework.org/schema/aop"
+        xsi:schemaLocation="http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd
+                http://www.springframework.org/schema/context
+                http://www.springframework.org/schema/context/spring-context.xsd
+                http://www.springframework.org/schema/aop
+                http://www.springframework.org/schema/aop/spring-aop.xsd">
+                
+		<context:component-scan base-package="cn.peter"></context:component-scan>
+		<context:property-placeholder location="db.properties"/>
+		
+		<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+		
+		<!-- <bean name="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource" p:jdbcUrl="${jdbc.jdbcUrl}"
+              p:driverClass="${jdbc.driverClass}"
+              p:user="root"
+              p:password="123"
+        /> -->
+		
+		<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+			<property name="driverClass" value="com.mysql.jdbc.Driver"></property>
+			<property name="jdbcUrl" value="jdbc:mysql://localhost:3306/session3_day10"></property>
+			<property name="user" value="root"></property>
+			<property name="password" value="123"></property>
+		</bean>
+		
+		<bean id="template" class="org.springframework.jdbc.core.JdbcTemplate">
+			<property name="dataSource" ref="dataSource"></property>
+		</bean>
+		
+		<!-- <bean id="genericAdvice" class="cn.peter.advice.GenericAdvice"></bean>
+		<aop:config>
+			<aop:pointcut id="pc" expression="execution(* cn.peter.service.impl.*ServiceImpl.*(..))"/>
+			<aop:aspect ref="genericAdvice">
+				<aop:before method="before" pointcut-ref="pc"/>
+				<aop:around method="around" pointcut-ref="pc"/>
+				<aop:after-returning method="afterReturning" pointcut-ref="pc"/>
+				<aop:after-throwing method="afterException" pointcut-ref="pc"/>
+				<aop:after method="after" pointcut-ref="pc"/>
+			</aop:aspect>
+		</aop:config> -->
+
+</beans>

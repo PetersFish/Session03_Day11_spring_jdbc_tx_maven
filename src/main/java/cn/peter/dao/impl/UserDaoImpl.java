@@ -1,14 +1,10 @@
 package cn.peter.dao.impl;
 
-import java.beans.PropertyVetoException;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.PreparedStatementCreator;
 import org.springframework.stereotype.Repository;
 
-import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 import cn.peter.dao.IUserDao;
 import cn.peter.pojo.po.User;
